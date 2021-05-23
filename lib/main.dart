@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'list_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -27,36 +28,39 @@ class _MyHomePageState extends State<MyHomePage> {
       drawer: Drawer(
         child: ListView(
           children: <Widget>[
-            DrawerHeader(
-              child: Text('メニューのヘッダー'),
-            ),
             ListTile(
-              title: Text("メニュー1"),
+              title: Text("一覧画面"),
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => ListPage()));
+              },
             ),
             ListTile(
               title: Text("押せないメニュー"),
-              onTap: () async {
-                await showDialog<String>(
-                  context: context,
-                  barrierDismissible: false,
-                  builder: (BuildContext context) {
-                    return AlertDialog(
-                      title: Text('タイトル'),
-                      content: Text('押せません'),
-                      actions: <Widget>[
-                        ElevatedButton(
-                          child: Text('OK'),
-                          onPressed: () => Navigator.of(context).pop("OK"),
-                        ),
-                      ],
-                    );
-                  },
-                );
-              },
+              onTap: () => asyncShowOkDialog("タイトル", "押せません"),
             ),
           ],
         ),
       ),
     );
+  }
+
+  Future<String?> asyncShowOkDialog(String title, String content) async {
+    String? result = await showDialog<String>(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          title: Text(title),
+          content: Text(content),
+          actions: <Widget>[
+            ElevatedButton(
+              child: Text('OK'),
+              onPressed: () => Navigator.of(context).pop("OK"),
+            ),
+          ],
+        );
+      },
+    );
+    return Future.value(result);
   }
 }
