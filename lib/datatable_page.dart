@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'dart:convert';
 
 ///
-/// 一覧画面
+/// datatableページ
 ///
 class ListPage extends StatelessWidget {
   @override
@@ -12,7 +12,7 @@ class ListPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('一覧画面'),
+        title: Text('datatableページ'),
       ),
       body: Container(
         child: Form(),
@@ -56,15 +56,9 @@ class _MyState extends State<Form> {
               child: PaginatedDataTable(
                 rowsPerPage: 10,
                 columns: const <DataColumn>[
-                  DataColumn(
-                    label: Text('証券コード'),
-                  ),
-                  DataColumn(
-                    label: Text('証券名'),
-                  ),
-                  DataColumn(
-                    label: Text('市場'),
-                  ),
+                  DataColumn(label: Text('証券コード')),
+                  DataColumn(label: Text('証券名')),
+                  DataColumn(label: Text('市場')),
                 ],
                 source: MyDataSource(_dataTable),
               ));

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'list_page.dart';
+import 'datatable_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,7 +29,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView(
           children: <Widget>[
             ListTile(
-              title: Text("一覧画面"),
+              title: Text("datatableページ"),
               onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => ListPage()));
