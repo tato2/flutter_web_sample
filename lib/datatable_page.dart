@@ -3,16 +3,16 @@ import 'package:flutter/services.dart';
 import 'dart:convert';
 
 ///
-/// datatableページ
+/// DataTableページ
 ///
-class ListPage extends StatelessWidget {
+class DataTablePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    print("ListPage build");
+    print("DataTablePage build");
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('datatableページ'),
+        title: Text('DataTableページ'),
       ),
       body: Container(
         child: Form(),

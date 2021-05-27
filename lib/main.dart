@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'datatable_page.dart';
+import 'infinite_scroll_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -29,10 +30,19 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListView(
           children: <Widget>[
             ListTile(
-              title: Text("datatableページ"),
+              title: Text("DataTableページ"),
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => ListPage()));
+                    MaterialPageRoute(builder: (context) => DataTablePage()));
+              },
+            ),
+            ListTile(
+              title: Text("無限スクロールページ"),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => InfiniteScrollPage()));
               },
             ),
             ListTile(
